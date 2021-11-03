@@ -1,14 +1,80 @@
-<h2>Владелец</h2>
+<div class="owners-base">
+  <h1>Владельцы автомобилей</h1>
 
-<div class="row ownerCreate">
-  <label for="aLastName" class="ownerCreateLabel">Фамилия: </label>
-  <input id="aLastName" [(ngModel)]="owner.aLastName" type="text" class="form-control">
+  <div class="wrapper-button">
+    <button><i class="fas fa-plus button-icon"></i>Добавить</button>
+    <button disabled><i class="far fa-eye button-icon"></i>Просмотр</button>
+    <button disabled><i class="fas fa-edit button-icon"></i>Редактировать</button>
+    <button disabled><i class="fas fa-trash-alt button-icon"></i>Удалить</button>
+  </div>
+
+  <table class="owners table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">Фамилия</th>
+      <th scope="col">Имя</th>
+      <th scope="col">Отчество</th>
+      <th scope="col">Количество автомобилей</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let owner of owners"
+        [class.selected]="owner === selectedOwner"
+        (click)="onSelect(owner)">
+      <td><span class="badge">{{owner.aOwnerId}}</span>{{owner.aFirstName}}</td>
+      <td><span class="badge">{{owner.aOwnerId}}</span>{{owner.aLastName}}</td>
+      <td><span class="badge">{{owner.aOwnerId}}</span>{{owner.aMiddleName}}</td>
+      <td>1</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
-<div class="row ownerCreate">
-  <label for="aFirstName" class="ownerCreateLabel">Имя: </label>
-  <input id="aFirstName" [(ngModel)]="owner.aFirstName" type="text" class="form-control">
-</div>
-<div class="row ownerCreate">
-  <label for="aMiddleName" class="ownerCreateLabel">Отчество: </label>
-  <input id="aMiddleName" [(ngModel)]="owner.aMiddleName" type="text" class="form-control">
+
+<div *ngIf="selectedOwner" class="owners-details">
+
+  <div class="owners-details-unit">
+  <h2>Владелец</h2>
+    <span class="badge">{{selectedOwner.aOwnerId}}</span>
+    <div class="row ownerCreate">
+      <label for="aLastName" class="ownerCreateLabel">Фамилия: </label>
+      <input id="aLastName" [(ngModel)]="selectedOwner.aLastName" type="text" class="form-control">
+    </div>
+    <div class="row ownerCreate">
+      <label for="aFirstName" class="ownerCreateLabel">Имя: </label>
+      <input id="aFirstName" [(ngModel)]="selectedOwner.aFirstName" type="text" class="form-control">
+    </div>
+    <div class="row ownerCreate">
+      <label for="aMiddleName" class="ownerCreateLabel">Отчество: </label>
+      <input id="aMiddleName" [(ngModel)]="selectedOwner.aMiddleName" type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="owners-details-car">
+    <h2>Автомобили</h2>
+
+    <table>
+      <thead>
+      <tr>
+        <th scope="col">Номер</th>
+        <th scope="col">Марка</th>
+        <th scope="col">Модель</th>
+        <th scope="col">Год</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><input id="aCarNumber" [(ngModel)]="car.aCarNumber" type="text" class="form-control"></td>
+        <td><input id="aCarBrand" [(ngModel)]="car.aCarBrand" type="text" class="form-control"></td>
+        <td><input id="aCarModel" [(ngModel)]="car.aCarModel" type="text" class="form-control"></td>
+        <td><input id="aCarProduction" [(ngModel)]="car.aCarProduction" type="text" class="form-control"></td>
+        <td><button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+      </tr>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary btn-carAdd"><i class="fas fa-plus button-icon"></i>Добавить автомобиль</button>
+    <br>
+    <button type="submit" class="btn btn-primary btn-carForm" disabled><i class="fa fa-floppy-o button-icon" aria-hidden="true"></i>Сохранить</button>
+    <button type="submit" class="btn btn-secondary btn-carForm" disabled><i class="fa fa-arrow-circle-left button-icon" aria-hidden="true"></i>Назад</button>
+
+  </div>
 </div>

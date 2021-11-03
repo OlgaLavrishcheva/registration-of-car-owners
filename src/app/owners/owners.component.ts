@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Owner} from '../../owner';
+import {OWNERS} from '../mock-owners';
+import {Car} from '../../cars';
 
 @Component({
   selector: 'app-owners',
@@ -7,15 +9,24 @@ import {Owner} from '../../owner';
   styleUrls: ['./owners.component.scss']
 })
 export class OwnersComponent implements OnInit {
-  owner: Owner = {
-    aOwnerId: 1,
-    aLastName: 'Иванов',
-    aFirstName: 'Иван',
-    aMiddleName: 'Иваныч'
+
+  owners = OWNERS;
+  selectedOwner?: Owner;
+
+  car: Car = {
+    aCarId: 1,
+    aCarNumber: 'AX2121HP',
+    aCarBrand: 'Hyundai',
+    aCarModel: 'Accent',
+    aCarProduction: 2009
   };
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(owner: Owner): void {
+    this.selectedOwner = owner;
   }
 }
