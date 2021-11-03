@@ -1,0 +1,25 @@
+<h2>Автомобили</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th scope="col">Номер</th>
+    <th scope="col">Марка</th>
+    <th scope="col">Модель</th>
+    <th scope="col">Год</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><input id="aCarNumber" [(ngModel)]="car.aCarNumber" type="text" class="form-control"></td>
+    <td><input id="aCarBrand" [(ngModel)]="car.aCarBrand" type="text" class="form-control"></td>
+    <td><input id="aCarModel" [(ngModel)]="car.aCarModel" type="text" class="form-control"></td>
+    <td><input id="aCarProduction" [(ngModel)]="car.aCarProduction" type="text" class="form-control"></td>
+    <td><button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+  </tr>
+  </tbody>
+</table>
+<button type="submit" class="btn btn-primary btn-carAdd"><i class="fas fa-plus button-icon"></i>Добавить автомобиль</button>
+<br>
+<button type="submit" class="btn btn-primary btn-carForm" disabled><i class="fa fa-floppy-o button-icon" aria-hidden="true"></i>Сохранить</button>
+<button type="submit" class="btn btn-secondary btn-carForm" disabled><i class="fa fa-arrow-circle-left button-icon" aria-hidden="true"></i>Назад</button>
