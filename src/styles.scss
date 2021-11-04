@@ -1,5 +1,8 @@
 @import "node_modules/bootstrap/scss/bootstrap";
+body {
 
+  overflow: scroll;
+}
 .app-wrapper {
   max-width: 1200px;
   margin: auto;

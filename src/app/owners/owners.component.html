@@ -19,12 +19,12 @@
     </thead>
     <tbody>
     <tr *ngFor="let owner of owners"
-        [class.selected]="owner === selectedOwner"
+      [class.selected]="owner === selectedOwner"
         (click)="onSelect(owner)">
       <td><span class="badge">{{owner.aOwnerId}}</span>{{owner.aFirstName}}</td>
       <td><span class="badge">{{owner.aOwnerId}}</span>{{owner.aLastName}}</td>
       <td><span class="badge">{{owner.aOwnerId}}</span>{{owner.aMiddleName}}</td>
-      <td>1</td>
+      <td>тут будет результат CarEntity</td>
     </tr>
     </tbody>
   </table>

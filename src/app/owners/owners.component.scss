@@ -10,11 +10,20 @@
 
   .wrapper-button {
     margin: 5px 0 10px 0;
+
+    & button {
+      margin-right: 10px;
+
+      &:first-child {
+        margin-right: 50px;
+      }
+
+      & i {
+        margin-right: 5px;
+      }
+    }
   }
 
-  button {
-    margin-right: 10px;
-  }
 }
 
 .owners-details {
@@ -59,3 +68,6 @@
 
 }
 
+.badge {
+  display: none;
+}
